@@ -1,0 +1,30 @@
+import React, { useState } from 'react';
+
+const Button = ({ handler, text }) => {
+    return <button onClick={handler}>{text}</button>
+}
+
+const Display = ({ message }) => <p>{message}</p>;
+
+
+const App4 = () => {
+    const [counter, setCounter] = useState(0);
+    const increaseByOne = () => setCounter(counter + 1)
+    const decreaseByOne = () => setCounter(counter - 1)
+    const setToZero = () => setCounter(0);
+
+    if (counter > 10) {
+        setToZero()
+    }
+    
+    return (
+        <div>
+            <Display message={counter} />
+            <Button handler={increaseByOne} text="Plus" />
+            <Button handler={setToZero} text="Reset" />
+            <Button handler={decreaseByOne} text="Minus" />
+        </div>
+    )
+}
+
+export default App4;
